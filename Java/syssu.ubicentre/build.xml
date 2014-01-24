@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project syssu.ubicentre">
+	<target name="init">
+		<delete dir="../syssu.ubicentre/bin" />
+		<mkdir dir="../syssu.ubicentre/bin" />
+		<delete dir="build" />
+		<mkdir dir="build" />
+	</target>
+
+	<target name="compile" depends="init" description="compile the source ">
+		<javac srcdir="../syssu.net/src" destdir="../syssu.ubicentre/bin" />
+		<javac srcdir="../syssu.json/src" destdir="../syssu.ubicentre/bin" />
+		<javac srcdir="../syssu.jsonrpc/src" destdir="../syssu.ubicentre/bin" />
+		<javac srcdir="../syssu.base/src" destdir="../syssu.ubicentre/bin" />
+		<javac srcdir="../syssu.coordubi/src" destdir="../syssu.ubicentre/bin" />
+		<javac srcdir="../syssu.services/src" destdir="../syssu.ubicentre/bin" />
+		<javac srcdir="../syssu.ubicentre/src" destdir="../syssu.ubicentre/bin" />
+
+		<copy file="../syssu.coordubi/src/br/ufc/great/syssu/coordubi/json2.js" todir="bin/br/ufc/great/syssu/ubicentre" />
+	</target>
+
+	<target name="create_run_jar" depends="compile">
+		<jar destfile="build/ubicentre.jar">
+			<manifest>
+				<attribute name="Main-Class" value="br.ufc.great.syssu.ubicentre.Main" />
+				<attribute name="Class-Path" value="." />
+			</manifest>
+			<fileset dir="../syssu.ubicentre/bin" />
+		</jar>
+	</target>
+</project>

@@ -1,0 +1,33 @@
+# Java #
+*.class
+
+# Directories #
+build/
+bin/
+target/
+
+# Windows image file caches
+Thumbs.db 
+ 
+# Folder config file
+Desktop.ini
+
+######################
+# Eclipse
+######################
+ 
+*.pydevproject
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+/src/main/resources/rebel.xml
+# External tool builders
+.externalToolBuilders/
+

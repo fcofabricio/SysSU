@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Jar for Project syssu.ubibroker">
+	<target name="init">
+		<delete dir="../syssu.ubibroker/bin" />
+		<mkdir dir="../syssu.ubibroker/bin" />
+		<delete dir="build" />
+		<mkdir dir="build" />
+	</target>
+
+	<target name="compile" depends="init" description="compile the source ">
+		<javac debug="true" srcdir="../syssu.net/src" destdir="../syssu.ubibroker/bin" />
+		<javac debug="true" srcdir="../syssu.json/src" destdir="../syssu.ubibroker/bin" />
+		<javac debug="true" srcdir="../syssu.jsonrpc/src" destdir="../syssu.ubibroker/bin" />
+		<javac debug="true" srcdir="../syssu.base/src" destdir="../syssu.ubibroker/bin" />
+		<javac debug="true" srcdir="../syssu.ubibroker/src" destdir="../syssu.ubibroker/bin" />
+		
+	</target>
+
+	<target name="create_run_jar" depends="compile">
+		<jar destfile="build/ubibroker.jar">
+			<manifest>
+				<attribute name="Class-Path" value="." />
+			</manifest>
+			<fileset dir="../syssu.ubibroker/bin" />
+		</jar>
+	</target>
+</project>
